@@ -1,6 +1,7 @@
 package datos;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 public class Persona {
 	private long idPersona;
@@ -8,6 +9,8 @@ public class Persona {
 	private String apellido;
 	private int dni;
 	private LocalDate fechaDeNacimiento;
+	private Set<Local> locales; 
+	
 	
 	public Persona() {
 		super();
@@ -59,6 +62,17 @@ public class Persona {
 
 	public void setFechaDeNacimiento(LocalDate fechaDeNacimiento) {
 		this.fechaDeNacimiento = fechaDeNacimiento;
+	}
+	
+	
+
+
+	public Set<Local> getLocales() {
+		return locales;
+	}
+
+	public void setLocales(Set<Local> locales) {
+		this.locales = locales;
 	}
 
 	@Override

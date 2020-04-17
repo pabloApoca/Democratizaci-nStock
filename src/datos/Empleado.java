@@ -5,6 +5,7 @@ import java.time.LocalTime;
 
 public class Empleado extends Persona {
 	private long idEmpleado;
+	private String tipo;
 	private String franjaHoraria;
 	private  double sueldoBasico;
 
@@ -12,15 +13,13 @@ public class Empleado extends Persona {
 		super();
 	}
 
-
-	public Empleado(String nombre, String apellido, int dni, LocalDate fechaDeNacimiento, String franjaHoraria,
-			double sueldoBasico) {
+	public Empleado(String nombre, String apellido, int dni, LocalDate fechaDeNacimiento, String tipo,
+			String franjaHoraria, double sueldoBasico) {
 		super(nombre, apellido, dni, fechaDeNacimiento);
+		this.tipo = tipo;
 		this.franjaHoraria = franjaHoraria;
 		this.sueldoBasico = sueldoBasico;
 	}
-
-
 
 	public long getIdEmpleado() {
 		return idEmpleado;
@@ -45,6 +44,22 @@ public class Empleado extends Persona {
 	public void setSueldoBasico(double sueldoBasico) {
 		this.sueldoBasico = sueldoBasico;
 	}
+
+
+
+
+	public String getTipo() {
+		return tipo;
+	}
+
+
+
+
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
 
 
 

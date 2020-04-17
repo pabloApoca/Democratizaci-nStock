@@ -21,16 +21,20 @@ public class PersonaAbm {
 	}
 
 	public Persona traerPersona(long idPersona) {
-		return PersonaDao.getInstance().traerPersona(idPersona);
+		return personaDao.getInstance().traerPersona(idPersona);
+	}
+	
+	public Persona traerPersonaYLocales(long idPersona) {
+		return personaDao.getInstance().traerPersonaYLocales(idPersona);
 	}
 
 	public List<Persona> traerPersona() {
 		return personaDao.getInstance().traerPersona();
 	}
 	//Persona Empleado 
-	public int agregarPersona(String nombre, String apellido, int dni, LocalDate fechaDeNacimiento, String franjaHoraria,
-			double sueldoBasico) {
-		return personaDao.agregarPersona(new Empleado (  nombre,  apellido,  dni,  fechaDeNacimiento,  franjaHoraria,
+	public int agregarPersona(String nombre, String apellido, int dni, LocalDate fechaDeNacimiento, String tipo,
+			String franjaHoraria, double sueldoBasico) {
+		return personaDao.agregarPersona(new Empleado (nombre,  apellido,  dni,  fechaDeNacimiento, tipo,  franjaHoraria,
 				 sueldoBasico));	
 	}
 	

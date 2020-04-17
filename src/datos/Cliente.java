@@ -6,6 +6,7 @@ public class Cliente extends Persona{
 	private long idCliente;
 	private String email;
 	
+	
 	public Cliente() {
 		super();
 	}

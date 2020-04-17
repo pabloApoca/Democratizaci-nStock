@@ -35,8 +35,19 @@ public class PersonaDao {
 	public Persona traerPersona(long idPersona) {
 		Persona objeto = null;
 		try {
-			iniciaOperacion();
-			objeto = (Persona) session.createQuery("from Persona c where c.idPersona =" + idPersona).uniqueResult();
+			iniciaOperacion();//inner join fetch c.locales l
+			objeto = (Persona) session.createQuery("from Persona c  where c.idPersona =" + idPersona).uniqueResult();
+		} finally {
+			session.close();
+		}
+		return objeto;
+	}
+	
+	public Persona traerPersonaYLocales(long idPersona) {
+		Persona objeto = null;
+		try {
+			iniciaOperacion();//inner join fetch c.locales l
+			objeto = (Persona) session.createQuery("from Persona c inner join fetch c.locales l where c.idPersona =" + idPersona).uniqueResult();
 		} finally {
 			session.close();
 		}

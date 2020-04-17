@@ -1,0 +1,19 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<class name="datos.Local" table="local">
+		<id column="idLocal" name="idLocal">
+			<generator class="identity" />
+		</id>
+		
+		<property column="direccion" name="direccion" type="string" />
+		<property column="latitud" name="latitud" type="double" />		
+		<property column="longitud" name="longitud" type="double" />		
+		<property column="codLocal" name="codLocal" type="int" />
+		<property column="nroTelefono" name="nroTelefono" type="int" />
+
+		<many-to-one name="persona" class="datos.Persona" column="idPersona" not-null="true" />
+
+		
+	</class>
+</hibernate-mapping>
