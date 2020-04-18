@@ -1,6 +1,8 @@
 package dao;
 
 import java.util.List;
+
+import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -40,13 +42,17 @@ public class LocalDao {
 		Local obj = null;
 		try {
 			iniciaOperacion();
-			String hQL = "from Local p where p.idLocal=" + idLocal;
+			String hQL = "from Local p inner join fetch p.cliente c  where p.idLocal=" + idLocal;
 			obj = (Local) session.createQuery(hQL).uniqueResult();
+			Hibernate.initialize( obj.getEmpleados());
 		} finally {
 			session.close();
 		}
 		return obj;
 	}
+	
+	
+
 	
 	@SuppressWarnings("unchecked")
 	public List<Local> traerLocal() throws HibernateException {

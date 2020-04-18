@@ -1,5 +1,7 @@
 package datos;
 
+import java.util.Set;
+
 public class Local {
 	private long idLocal;
 	private String direccion;
@@ -7,20 +9,21 @@ public class Local {
 	private double longitud;
 	private int codLocal;
 	private int nroTelefono;
-	private Persona persona;
+	private Cliente cliente;
+	private Set<Empleado> empleados;
 	
 	public Local() {
 		super();
 	}
 
-	public Local(String direccion, double latitud, double longitud, int codLocal, int nroTelefono,Persona persona) {
+	public Local(String direccion, double latitud, double longitud, int codLocal, int nroTelefono,Cliente cliente) {
 		super();
 		this.direccion = direccion;
 		this.latitud = latitud;
 		this.longitud = longitud;
 		this.codLocal = codLocal;
 		this.nroTelefono = nroTelefono;
-		this.persona = persona;
+		this.cliente = cliente;
 	}
 
 	public long getIdLocal() {
@@ -71,15 +74,14 @@ public class Local {
 		this.nroTelefono = nroTelefono;
 	}
 
-/*	public Persona getPersona() {
-		return persona;
+
+	public Set<Empleado> getEmpleados() {
+		return empleados;
 	}
 
-	public void setPersona(Persona persona) {
-		this.persona = persona;
-	}*/
-	
-	
+	public void setEmpleados(Set<Empleado> empleados) {
+		this.empleados = empleados;
+	}
 
 	@Override
 	public String toString() {
@@ -87,14 +89,15 @@ public class Local {
 				+ longitud + ", codLocal=" + codLocal + ", nroTelefono=" + nroTelefono + "]";
 	}
 
-	public Persona getPersona() {
-		return persona;
+	public Cliente getCliente() {
+		return cliente;
 	}
 
-	public void setPersona(Persona persona) {
-		this.persona = persona;
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
-	
+
+
 	
 	
 	

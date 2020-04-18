@@ -33,23 +33,31 @@ public class TestAgregarYTraerPersonas {
 		
 		long idPersona = 1;
 		System.out.println("Traer persona por id: "+ idPersona);
-		Persona p1 =personaAbm.getInstance().traerPersonaYLocales(idPersona);
+		Persona p1 = (Cliente)personaAbm.getInstance().traerPersonaYLocales(idPersona);
 		System.out.println(p1);
 		System.out.println("Lista de locales de cliente ID: " + idPersona);
-		for (Local lo : p1.getLocales()) System.out.println(lo);
+		for (Local lo :((Cliente) p1).getLocales()) System.out.println(lo);
+		
+		idPersona = 2;
+		System.out.println("\nTraer persona por id: "+ idPersona);
+		 p1 =personaAbm.traerPersona(idPersona);//getInstance().traerPersonaYLocales(idPersona);
+		System.out.println(p1);
+	//	for(Local lo: p1.getLocales())System.out.println(lo);
 		
 		 idPersona = 3;
 		System.out.println("\nTraer persona por id: "+ idPersona);
 		 p1 =personaAbm.getInstance().traerPersonaYLocales(idPersona);
 		System.out.println(p1);
 		System.out.println("Lista de locales de cliente ID: " + idPersona);
-		for (Local lo : p1.getLocales()) System.out.println(lo);
+		for (Local lo : ((Cliente) p1).getLocales()) System.out.println(lo);
 		
-		idPersona = 2;
+	//	for(Local lo: p1.getLocales())System.out.println(lo);
+		
+	/*	idPersona = 2;
 		System.out.println("\nTraer persona por id: "+ idPersona);
 		p1 =personaAbm.traerPersonaYLocales(idPersona);//getInstance().traerPersonaYLocales(idPersona);
 		System.out.println(p1);
-		for(Local lo: p1.getLocales())System.out.println(lo);
+		for(Local lo: p1.getLocales())System.out.println(lo);*/
 		
 		
 	/*	 idPersona = 2;
@@ -63,7 +71,7 @@ public class TestAgregarYTraerPersonas {
 			System.out.println(p);
 		}*/
 		
-		System.out.println("\nTraer lista de personas");
+		System.out.println("\n\nTraer lista de personas");
 		List<Persona> personas = personaAbm.getInstance().traerPersona();
 		for(Persona p : personas) {
 			System.out.println(p);

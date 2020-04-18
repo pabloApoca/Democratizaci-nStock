@@ -1,10 +1,12 @@
 package datos;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 public class Cliente extends Persona{
 	private long idCliente;
 	private String email;
+	private Set<Local> locales; 
 	
 	
 	public Cliente() {
@@ -32,10 +34,20 @@ public class Cliente extends Persona{
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+
+	public Set<Local> getLocales() {
+		return locales;
+	}
+
+	public void setLocales(Set<Local> locales) {
+		this.locales = locales;
+	}
+
 
 	@Override
 	public String toString() {
-		return "Cliente [IdPersona=" + getIdPersona()+"  , Nombre=" + getNombre()
+		return "Cliente [IdCliente=" + getIdPersona()+"  , Nombre=" + getNombre()
 				+ ", Apellido=" + getApellido() + ", Dni=" + getDni() + ", FechaDeNacimiento="
 				+ getFechaDeNacimiento() +" email=" + email +  "]";
 	}

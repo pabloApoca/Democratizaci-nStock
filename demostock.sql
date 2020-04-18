@@ -54,8 +54,11 @@ CREATE TABLE `empleado` (
   `tipo` varchar(45) NOT NULL,
   `franjaHoraria` varchar(45) NOT NULL,
   `sueldoBasico` double NOT NULL,
+  `idLocal` int(11) NOT NULL,
   PRIMARY KEY (`idEmpleado`),
-  CONSTRAINT `fk_persona` FOREIGN KEY (`idEmpleado`) REFERENCES `persona` (`idPersona`)
+  KEY `fk_empleado_local_idx` (`idLocal`),
+  CONSTRAINT `fk_persona` FOREIGN KEY (`idEmpleado`) REFERENCES `persona` (`idPersona`),
+  CONSTRAINT `kk_empleado_local` FOREIGN KEY (`idLocal`) REFERENCES `local` (`idLocal`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -65,7 +68,7 @@ CREATE TABLE `empleado` (
 
 LOCK TABLES `empleado` WRITE;
 /*!40000 ALTER TABLE `empleado` DISABLE KEYS */;
-INSERT INTO `empleado` VALUES (2,'Gerente','8am - 15pm',20000),(4,'Gerente','8am - 15pm',20000),(5,'Vendedor','8am - 17pm',15000),(6,'Vendedor','8am - 17pm',15000);
+INSERT INTO `empleado` VALUES (2,'Gerente','8am - 15pm',20000,1),(4,'Gerente','8am - 15pm',20000,3),(5,'Vendedor','8am - 17pm',15000,1),(6,'Vendedor','8am - 17pm',15000,3);
 /*!40000 ALTER TABLE `empleado` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -83,11 +86,11 @@ CREATE TABLE `local` (
   `longitud` double NOT NULL,
   `codLocal` int(11) NOT NULL,
   `nroTelefono` int(11) NOT NULL,
-  `idPersona` int(11) NOT NULL,
+  `idCliente` int(11) NOT NULL,
   PRIMARY KEY (`idLocal`),
-  KEY `fk_persona_local_idx` (`idPersona`),
-  CONSTRAINT `fk_persona_local` FOREIGN KEY (`idPersona`) REFERENCES `persona` (`idPersona`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `fk_cliente_local_idx` (`idCliente`),
+  CONSTRAINT `fk_cliente_local` FOREIGN KEY (`idCliente`) REFERENCES `cliente` (`idCliente`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -96,7 +99,7 @@ CREATE TABLE `local` (
 
 LOCK TABLES `local` WRITE;
 /*!40000 ALTER TABLE `local` DISABLE KEYS */;
-INSERT INTO `local` VALUES (1,'Pasaje 123',2112.555,2221.444,1111111,42881100,1),(2,'Pasaje 456',4114.4444,3333.555,2222222,58552001,1),(3,'Pasaje 124',3113.4444,3331.3333,3333333,42511078,1),(4,'Pasaje 001',3113.4444,3331.3333,4444444,42511078,3),(5,'Pasaje 002',3223.2222,2221.2222,5555555,42551874,3),(6,'Pasaje 003',4334.1111,3223.2112,6666666,42551874,2);
+INSERT INTO `local` VALUES (1,'Pasaje 123',2112.555,2221.444,1111111,42881100,1),(2,'Pasaje 456',4114.4444,3333.555,2222222,58552001,1),(3,'Pasaje 124',3113.4444,3331.3333,3333333,42511078,1),(4,'Pasaje 001',3113.4444,3331.3333,4444444,42511078,3),(5,'Pasaje 002',3223.2222,2221.2222,5555555,42551874,3),(6,'Pasaje 003',4334.1111,3223.2112,6666666,42551874,3),(7,'Pasaje 101',2112.555,2221.444,1111111,42881100,1);
 /*!40000 ALTER TABLE `local` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -136,4 +139,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-04-17  1:51:51
+-- Dump completed on 2020-04-18  2:13:00

@@ -9,7 +9,7 @@ public class Persona {
 	private String apellido;
 	private int dni;
 	private LocalDate fechaDeNacimiento;
-	private Set<Local> locales; 
+	
 	
 	
 	public Persona() {
@@ -66,14 +66,6 @@ public class Persona {
 	
 	
 
-
-	public Set<Local> getLocales() {
-		return locales;
-	}
-
-	public void setLocales(Set<Local> locales) {
-		this.locales = locales;
-	}
 
 	@Override
 	public String toString() {

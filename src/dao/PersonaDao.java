@@ -47,7 +47,7 @@ public class PersonaDao {
 		Persona objeto = null;
 		try {
 			iniciaOperacion();//inner join fetch c.locales l
-			objeto = (Persona) session.createQuery("from Persona c inner join fetch c.locales l where c.idPersona =" + idPersona).uniqueResult();
+			objeto = (Persona) session.createQuery("from Persona c inner join fetch c.locales  where c.idPersona =" + idPersona).uniqueResult();
 		} finally {
 			session.close();
 		}

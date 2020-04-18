@@ -11,14 +11,15 @@
 		<property column="dni" name="dni" type="int" />
 		<property column="fechaDeNacimiento" name="fechaDeNacimiento" type="LocalDate" />
 
-		<set name="locales" table="local" order-by="idLocal asc" inverse="true" lazy="true" fetch="select">
-			<key column="idPersona" not-null="true"/>
-			<one-to-many class="datos.Local" />
-		</set>
+
 		
 		<joined-subclass name="datos.Cliente" table="cliente">
 			<key column="idCliente" />
-			<property column="email" name="email" type="string" />
+			<property column="email" name="email" type="string" />	
+		<set name="locales" table="local" order-by="idLocal asc" inverse="true" lazy="true" fetch="select">
+			<key column="idCliente" not-null="true"/>
+			<one-to-many class="datos.Local" />
+		</set>
 		</joined-subclass>
 		
 		
@@ -28,6 +29,7 @@
 			<property column="tipo" name="tipo" type="string" />
 			<property column="franjaHoraria" name="franjaHoraria" type="string" />
 			<property column="sueldoBasico" name="sueldoBasico" type="double" />
+			<many-to-one name="local" class="datos.Local" column="idLocal" not-null="true" />
 		</joined-subclass>		
 		
 

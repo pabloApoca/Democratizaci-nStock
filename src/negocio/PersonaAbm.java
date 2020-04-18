@@ -5,6 +5,7 @@ import java.util.List;
 import dao.PersonaDao;
 import datos.Cliente;
 import datos.Empleado;
+import datos.Local;
 import datos.Persona;
 
 public class PersonaAbm {
@@ -33,9 +34,9 @@ public class PersonaAbm {
 	}
 	//Persona Empleado 
 	public int agregarPersona(String nombre, String apellido, int dni, LocalDate fechaDeNacimiento, String tipo,
-			String franjaHoraria, double sueldoBasico) {
+			String franjaHoraria, double sueldoBasico, Local local) {
 		return personaDao.agregarPersona(new Empleado (nombre,  apellido,  dni,  fechaDeNacimiento, tipo,  franjaHoraria,
-				 sueldoBasico));	
+				 sueldoBasico, local));	
 	}
 	
 //Persona Cliente
