@@ -68,7 +68,7 @@ CREATE TABLE `empleado` (
 
 LOCK TABLES `empleado` WRITE;
 /*!40000 ALTER TABLE `empleado` DISABLE KEYS */;
-INSERT INTO `empleado` VALUES (2,'Gerente','8am - 15pm',20000,1),(4,'Gerente','8am - 15pm',20000,3),(5,'Vendedor','8am - 17pm',15000,1),(6,'Vendedor','8am - 17pm',15000,3);
+INSERT INTO `empleado` VALUES (2,'Gerente','8am - 15pm',20000,1),(4,'Gerente','8am - 15pm',20000,3),(5,'Vendedor','8am - 17pm',15000,1),(6,'Vendedor','8am - 17pm',15000,3),(7,'Vendedor','8am - 17pm',15000,1),(8,'Vendedor','8am - 17pm',15000,3);
 /*!40000 ALTER TABLE `empleado` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -104,6 +104,34 @@ INSERT INTO `local` VALUES (1,'Pasaje 123',2112.555,2221.444,1111111,42881100,1)
 UNLOCK TABLES;
 
 --
+-- Table structure for table `lote`
+--
+
+DROP TABLE IF EXISTS `lote`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `lote` (
+  `idLote` int(11) NOT NULL AUTO_INCREMENT,
+  `cantidad` int(11) NOT NULL,
+  `fechaIngreso` date NOT NULL,
+  `idLocal` int(11) NOT NULL,
+  PRIMARY KEY (`idLote`),
+  KEY `fk_lote_local_idx` (`idLocal`),
+  CONSTRAINT `fk_lote_local` FOREIGN KEY (`idLocal`) REFERENCES `local` (`idLocal`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `lote`
+--
+
+LOCK TABLES `lote` WRITE;
+/*!40000 ALTER TABLE `lote` DISABLE KEYS */;
+INSERT INTO `lote` VALUES (1,2,'2020-04-18',1),(2,4,'2020-04-18',1),(3,5,'2020-04-18',1);
+/*!40000 ALTER TABLE `lote` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `persona`
 --
 
@@ -117,7 +145,7 @@ CREATE TABLE `persona` (
   `dni` int(11) NOT NULL,
   `fechaDeNacimiento` date NOT NULL,
   PRIMARY KEY (`idPersona`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -126,8 +154,36 @@ CREATE TABLE `persona` (
 
 LOCK TABLES `persona` WRITE;
 /*!40000 ALTER TABLE `persona` DISABLE KEYS */;
-INSERT INTO `persona` VALUES (1,'Pablo','Lopez',38554122,'1990-08-11'),(2,'Maria','Perez',22554107,'1997-05-21'),(3,'Eduardo','Perales',18477522,'1980-12-07'),(4,'Martin','Rodriguez',22846254,'2000-07-01'),(5,'Brian','Gimenez',38554101,'1994-08-15'),(6,'Diana','Rosales',37441012,'1993-08-27');
+INSERT INTO `persona` VALUES (1,'Pablo','Lopez',38554122,'1990-08-11'),(2,'Maria','Perez',22554107,'1997-05-21'),(3,'Eduardo','Perales',18477522,'1980-12-07'),(4,'Martin','Rodriguez',22846254,'2000-07-01'),(5,'Brian','Gimenez',38554101,'1994-08-15'),(6,'Diana','Rosales',37441012,'1993-08-27'),(7,'Luciano','Villareal',38552110,'1993-05-17'),(8,'Aldana','Lozada',40211044,'1995-09-21');
 /*!40000 ALTER TABLE `persona` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `producto`
+--
+
+DROP TABLE IF EXISTS `producto`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `producto` (
+  `idProducto` int(11) NOT NULL AUTO_INCREMENT,
+  `descripcion` varchar(45) NOT NULL,
+  `precioUnitario` double NOT NULL,
+  `fechaAlta` date NOT NULL,
+  `stock` int(11) NOT NULL,
+  `idLote` int(11) NOT NULL,
+  PRIMARY KEY (`idProducto`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `producto`
+--
+
+LOCK TABLES `producto` WRITE;
+/*!40000 ALTER TABLE `producto` DISABLE KEYS */;
+INSERT INTO `producto` VALUES (1,'Arroz',15,'2020-04-19',5,1),(2,'Fideos',18.5,'2020-04-19',10,1),(3,'Manteca',40.5,'2020-04-19',20,1),(4,'Arroz',15,'2020-04-19',7,2),(5,'Fideos',18.5,'2020-04-19',20,2),(6,'Manteca',40.5,'2020-04-19',30,2);
+/*!40000 ALTER TABLE `producto` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -139,4 +195,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-04-18  2:13:00
+-- Dump completed on 2020-04-19 23:27:03

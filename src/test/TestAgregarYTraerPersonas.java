@@ -4,15 +4,18 @@ import java.time.LocalDate;
 import java.util.List;
 
 import datos.Cliente;
+import datos.Empleado;
 import datos.Local;
 import datos.Persona;
+import negocio.LocalAbm;
 import negocio.PersonaAbm;
 
 public class TestAgregarYTraerPersonas {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		PersonaAbm  personaAbm =new  PersonaAbm(); 
+		PersonaAbm  personaAbm =new  PersonaAbm();
+		LocalAbm  localAbm = new LocalAbm();
 		
 		//long persona = personaAbm.agregarPersona("Pablo", "Lopez", 38554122, LocalDate.of(1990,8, 11), "pablo@gmial.com");
 		//System.out.println("Id persona ingresada: " + persona);
@@ -24,9 +27,17 @@ public class TestAgregarYTraerPersonas {
 		//long persona = personaAbm.agregarPersona("Martin", "Rodriguez", 22846254, LocalDate.of(2000,7,1),"Gerente", "8am - 15pm", 20000.00);
 		//System.out.println("Id persona ingresada: " + persona);
 		
-		/*long persona = personaAbm.agregarPersona("Brian", "Gimenez", 38554101, LocalDate.of(1994,8, 15),"Vendedor", "8am - 17pm", 15000.00);
+
+		
+		 
+	/*	long idLocal = 1;
+		Local l = localAbm.traerLocal(idLocal);
+		long persona = personaAbm.agregarPersona("Luciano", "Villareal", 38552110, LocalDate.of(1993,5, 17),"Vendedor", "8am - 17pm", 15000.00, l);
 		System.out.println("Id persona ingresada: " + persona);
-		 persona = personaAbm.agregarPersona("Diana", "Rosales", 37441012, LocalDate.of(1993,8,27),"Vendedor", "8am - 17pm", 15000.00);
+		
+		idLocal = 3;
+		 l = localAbm.traerLocal(idLocal);
+		 persona = personaAbm.agregarPersona("Aldana", "Lozada", 40211044, LocalDate.of(1995,9,21),"Vendedor", "8am - 17pm", 15000.00, l);
 		System.out.println("Id persona ingresada: " + persona);*/
 		
 		

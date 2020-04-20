@@ -65,9 +65,15 @@ public class TestLocales {
 		
 		//Traer la lista de los locales 
 		
-		System.out.println("\n\nTraer lista de locales");
+		System.out.println("\n\n-----------------Traer lista de locales-----------------");
 		for(Local loc : localAbm.traerLocal()) {
 			System.out.println(loc);
+			System.out.println(loc.getCliente()+ "\n");
+		/*	for(Empleado e: loc.getEmpleados()) {
+				System.out.println(e);
+			}
+			System.out.println("\n");*/
+
 		}
 		
 		

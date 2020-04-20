@@ -11,6 +11,8 @@ public class Local {
 	private int nroTelefono;
 	private Cliente cliente;
 	private Set<Empleado> empleados;
+	private Set<Lote> lotes;
+
 	
 	public Local() {
 		super();
@@ -82,10 +84,20 @@ public class Local {
 	public void setEmpleados(Set<Empleado> empleados) {
 		this.empleados = empleados;
 	}
+	
+	
+
+	public Set<Lote> getLotes() {
+		return lotes;
+	}
+
+	public void setLotes(Set<Lote> lotes) {
+		this.lotes = lotes;
+	}
 
 	@Override
 	public String toString() {
-		return "Local [idLocal=" + idLocal + ", direccion=" + direccion + ", latitud=" + latitud + ", longitud="
+		return "Local [idLocal=" + getIdLocal() + ", direccion=" + direccion + ", latitud=" + latitud + ", longitud="
 				+ longitud + ", codLocal=" + codLocal + ", nroTelefono=" + nroTelefono + "]";
 	}
 
@@ -97,6 +109,7 @@ public class Local {
 		this.cliente = cliente;
 	}
 
+	//1125441145
 
 	
 	

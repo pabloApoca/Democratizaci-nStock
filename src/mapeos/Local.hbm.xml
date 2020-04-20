@@ -18,6 +18,11 @@
 			<key column="idLocal" not-null="true"/>
 			<one-to-many class="datos.Empleado" />
 		</set>
+		
+		<set name="lotes" table="lote" order-by="idLote asc" inverse="true" lazy="true" fetch="select">
+			<key column="idLocal" not-null="true"/>
+			<one-to-many class="datos.Lote" />
+		</set>
 
 		
 	</class>
